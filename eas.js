@@ -6,30 +6,34 @@ button.classList.add('btn');
 button.id = 'popUp';
 body.appendChild(button);
 
-let noOfSquareSides;
+let noOfSquareSides = 16;
 let noOfSquares = 256;
+let size = (100 / noOfSquareSides);
 
 const popUp  = function (e) {
-    noOfSquareSides = prompt('Input number of squares per side of grid', 'max 100');
-    if (noOfSquareSides > '100' ) {
-        noOfSquareSides = '100';
-    } else if (noOfSquareSides < '16' || !noOfSquareSides) {
-        noOfSquareSides = '16';
+    noOfSquareSides = parseInt(prompt('Input number of squares per side of grid', 'max 100'));
+    if (noOfSquareSides > 100 ) {
+        noOfSquareSides = 100;
+    } else if (noOfSquareSides < 16 || !noOfSquareSides) {
+        noOfSquareSides = 16;
     }
-   noOfSquares = ((+noOfSquareSides) ** 2);
+   noOfSquares = ((noOfSquareSides) ** 2);
 
+   //create function for clearing old grid and a loop for the new one.
 
- for (let i = 0; i < noOfSquares; i++) {
-    const cellDiv = document.createElement('div');
-    cellDiv.classList.add('cellDiv');
-    cellDiv.style.cssText = `flex: 0 0 ${(100 / noOfSquareSides)};`
-    container.appendChild(cellDiv);
- };
-   
 }
 
 
 button.addEventListener('click', popUp);
+
+
+for (let i = 0; i < noOfSquares; i++) {
+    const cellDiv = document.createElement('div');
+    cellDiv.classList.add('cellDiv');
+    cellDiv.style.flex = `0 0 ${size}%`
+    cellDiv.style.height = `${size}%`
+    container.appendChild(cellDiv);
+};
 
 
 const mouseOver = function (e) {
