@@ -26,7 +26,7 @@ const popUp  = function (e) {
 
 button.addEventListener('click', popUp);
 
-
+function gridMap() {
 for (let i = 0; i < noOfSquares; i++) {
     const cellDiv = document.createElement('div');
     cellDiv.classList.add('cellDiv');
@@ -34,7 +34,9 @@ for (let i = 0; i < noOfSquares; i++) {
     cellDiv.style.height = `${size}%`
     container.appendChild(cellDiv);
 };
+}
 
+gridMap();
 
 const mouseOver = function (e) {
    if (e.target.classList.contains('cellDiv')) {
