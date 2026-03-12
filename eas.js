@@ -5,6 +5,7 @@ button.textContent = "Grid Size";
 button.classList.add('btn');
 button.id = 'popUp';
 body.appendChild(button);
+body.appendChild(container);
 
 let noOfSquareSides = 16;
 let noOfSquares = 256;
