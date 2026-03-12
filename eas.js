@@ -27,6 +27,12 @@ function cleargridMap() {
 
 gridMap();
 
+const mouseOver = function (e) {
+   if (e.target.classList.contains('cellDiv')) {
+    e.target.style.backgroundColor = "green"
+   }
+};
+
 const popUp  = function (e) {
     noOfSquareSides = parseInt(prompt('Input number of squares per side of grid', 'max 100'));
     if (noOfSquareSides > 100 ) {
@@ -41,16 +47,12 @@ const popUp  = function (e) {
    gridMap();
 }
 
+container.addEventListener('mouseover', mouseOver);
 
 button.addEventListener('click', popUp);
 
-const mouseOver = function (e) {
-   if (e.target.classList.contains('cellDiv')) {
-    e.target.style.backgroundColor = "green"
-   }
-};
 
-container.addEventListener('mouseover', mouseOver);
+
 
 
 
